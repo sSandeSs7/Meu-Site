@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="Contato.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="PaginaPrincipal.html">Página Principal</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="portfólio.html">Portfólio</a></li>
+                <li><a href="novidades.html">Novidades</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <link rel="icon" href="IMG/icon.png" type="image/x-icon">
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <div class="content">
+                <h2>Redes Sociais</h2>               
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/richardsandes_/"><img src="IMG/LogoInsta.png" alt="Instagram"></a>
+                    <a href=""><img src="IMG/LogoZap.png" alt="WhatsApp"></a>
+                    <a href=""><img src="IMG/LogoTikTok.png" alt="TikTok"></a>
+                </div>
+            </div>
+        </article>
+        <div class="formulario">
+            <p>Entre em contato comigo através do meu e-mail:</p>
+            <form id="contactForm" onsubmit="return enviarEmail()">
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" required><br>
+        
+                <label for="idade">Idade:</label><br>
+                <input type="number" id="idade" name="idade" required><br>
+        
+                <label for="telefone">Telefone:</label><br>
+                <input type="tel" id="telefone" name="telefone" required><br>
+        
+                <label for="cargo">Cargo:</label><br>
+                <input type="text" id="cargo" name="cargo" required><br>
+        
+                <button type="submit">Enviar e-mail ao destinatário</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p> Web Site Richard</p>
+    </footer>
+
+    <script>
+        function enviarEmail() {
+            var nome = document.getElementById('nome').value;
+            var idade = document.getElementById('idade').value;
+            var telefone = document.getElementById('telefone').value;
+            var cargo = document.getElementById('cargo').value;
+        
+            var dataHora = new Date();
+            var data = dataHora.toLocaleDateString();
+            var hora = dataHora.toLocaleTimeString();
+        
+            if (nome === '' || idade === '' || telefone === '' || cargo === '') {
+                alert('Por favor, preencha todos os campos.');
+                return false;
+            }
+        
+            var assunto = "Contato - " + nome + " (" + idade + " anos, " + telefone + ", " + cargo + ") - Enviado em " + data + " às " + hora;
+        
+            window.location.href = "richardsandes7@gmail.com" + encodeURIComponent(assunto);
+        
+            return false;
+        }
+    </script>
+</body>
+</html>
